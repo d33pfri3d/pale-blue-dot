@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>You are Here</title>
+
+	<script src="https://rawgit.com/aframevr/aframe/88ab1e0/dist/aframe-master.min.js"></script>
+</head>
+<body>
+	
+
+
+	<a-scene>
+		
+		<a-assets>
+			<audio id="sagan" src="assets/sagan.mp3" ontimeupdate='tracktime(this);'></audio>
+			<video id="sagan-clip" autoplay src="assets/sagan-clip.mp4"></video>
+		</a-assets>
+
+		<!--  Sky -->
+
+		<a-sky color="black"></a-sky>
+
+		<!-- Opening -->
+
+		<a-image id="pbd" src="assets/background.jpg" position="0 1.6 -5" width="16" height="9" opacity="0">
+			<a-animation attribute="opacity"
+               dur="1000"
+               to="1" begin="fadein"></a-animation>
+      <a-animation attribute="opacity"
+               dur="800"
+               to="0" begin="fadeout"></a-animation>
+		</a-image>
+
+		<!-- Earth -->
+
+		<a-entity position="0 1.6 -5">
+			<a-sphere id="earth" src="https://cdn.rawgit.com/bryik/Assets/eb18a301/images/planet_textures/earth.jpg" rotation="6.5 200 2" radius="3" opacity="0">
+				<a-animation attribute="opacity" dur="1000" to="1" begin="fadein"></a-animation>
+				<a-animation attribute="rotation" to="6.5 360 2" dur="35000" fill="forwards" easing="linear" repeat="indefinite" begin="fadein"></a-animation>
+				<a-animation attribute="opacity" dur="800" to="0" begin="fadeout"></a-animation>
+			</a-sphere>
+		</a-entity>
+
+
+		<!-- Everyone -->
+
+		<a-entity id="everyone" position="0 0 -5">
+
+			<a-image id="everyone-1" src="assets/1.jpg" opacity="0" height="2" width="3">
+				<a-animation attribute="opacity" dur="1000" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-2" src="assets/2.jpg" position="-4 2.41 0" opacity="0" height="2" width="5">
+				<a-animation attribute="opacity" dur="1000" delay="3000" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-3" src="assets/3.png" position="2 0.6 0.76" opacity="0" height="2" width="3">
+				<a-animation attribute="opacity" dur="1000" delay="5000" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-4" src="assets/bill.jpg" position="4.5 2 2" rotation="0 -33 0" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="6000" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-5" src="assets/4.png" position="-2 2.4 0.86" height="2" width="2" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="7800" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-6" src="assets/5.png" position="-2 1.6 3" rotation="0 33 0" opacity="0" height="2" width="2">
+				<a-animation attribute="opacity" dur="1000" delay="7900" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-7" src="assets/6.jpg" position="-1.2 1 -1" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="8000" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-8" src="assets/7.png" position="-2.5 4 -1.47" opacity="0" height="2" width="2">
+				<a-animation attribute="opacity" dur="1000" delay="8100" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+
+			<a-image id="everyone-9" src="assets/8.png" position="3.3 2.5 -2" rotation="0 -20 0" opacity="0" height="5" width="4">
+				<a-animation attribute="opacity" dur="1000" delay="8500" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+
+			<a-image id="everyone-10" src="assets/9.jpg" position="7.3 1.9 -1.8" opacity="0" height="2" width="4">
+				<a-animation attribute="opacity" dur="1000" delay="8600" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-11" src="assets/10.jpg" position="-3.7 6.4 -1.83" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="8700" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+
+			<a-image id="everyone-12" src="assets/bill.jpg" position="-0.64 1.95 -3.9" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="8800" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-13" src="assets/bill.jpg" position="0.1 0.1 -4.9" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="8900" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-14" src="assets/bill.jpg" position="4.7 1.4 -1" rotation="0 -20 0" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="9000" to="1" begin="fadein"></a-animation>
+			</a-image>
+
+			<a-image id="everyone-15" src="assets/bill.jpg" position="-3 3.6 -5.2" opacity="0">
+				<a-animation attribute="opacity" dur="1000" delay="9500" to="1" begin="fadein"></a-animation>
+			</a-image>
+			
+		</a-entity>
+
+		<!-- Joy / Suffering -->
+		<a-video id="sagan-clip-1" visible="false" height="2" width="3" position="0 1.56 -3" src="#sagan-clip"></a-video>
+
+
+		<!-- Obscurity -->
+
+		<a-entity id="obscurity" visible="false" position="0 1.6 -2">
+
+			<a-text id="t1" value="In our obscurity" opacity="0" position="-2.8 1 0">
+				<a-animation attribute="opacity" dur="1000" to="1" begin="fadein"></a-animation>
+			</a-text>
+
+			<a-text id="t2" value="in all this vastness" opacity="0" position="-2.5 0.6 0">
+				<a-animation attribute="opacity" dur="1000" delay="2500" to="1" begin="fadein"></a-animation>
+			</a-text>
+
+			<a-text id="t3" value="there is no hint" opacity="0" position="-1.8 0.19 0">
+				<a-animation attribute="opacity" dur="1000" to="1" delay="5000" begin="fadein"></a-animation>
+			</a-text>
+
+			<a-text id="t5" value="that help will come from elsewhere" opacity="0" position="0 0.2 0">
+				<a-animation attribute="opacity" dur="1000" to="1" delay="6200" begin="fadein"></a-animation>
+			</a-text>
+
+			<a-text id="t6" value="to save us from ourselves" opacity="0" position="1.2 0 0" rotation="0 -45 0">
+				<a-animation attribute="opacity" dur="1000" to="1"  delay="8000" begin="fadein"></a-animation>
+			</a-text>
+			
+		</a-entity>
+
+
+
+		<!-- Camera -->
+
+		<a-camera id="camera" zoom="1">
+			<a-animation attribute="position" dur="12000" delay="1000" to="0 1.56 -1" easing="linear" begin="zoom-1"></a-animation>
+
+			<a-animation attribute="zoom" dur="12000" to="2" easing="linear" begin="zoom-2"></a-animation>
+		</a-camera>
+
+
+		<!-- Lights -->
+
+		<a-light type="ambient"></a-light>
+
+
+
+	</a-scene>
+
+
+
+	<script type="text/javascript">
+
+	var camera = document.getElementById('camera');
+
+	var started = false;
+	var pdb_background = document.getElementById('pbd');
+	var earth = document.getElementById('earth');
+			
+	var audio = document.getElementById('sagan');
+	var sc = document.getElementById('sagan-clip');
+	sc.pause();
+
+	var tracktime = function(track){
+		var currTime = Math.floor(track.currentTime).toString();
+		console.log(currTime);
+
+		if(currTime === "8"){
+			begin();
+		}
+
+		if(currTime === "9"){
+			resetStarted();
+		}
+
+		if(currTime === "22"){
+			thisIsHere();
+		}
+
+		if(currTime === "23"){
+			resetStarted();
+		}
+
+		if(currTime === "27"){
+			everyone();
+		}
+
+		if(currTime === "28"){
+			resetStarted();
+		}
+
+		if(currTime === "39"){
+			video1();
+		}
+
+		if(currTime === "40"){
+			resetStarted();
+		}
+
+		if(currTime === "76"){
+			inASunbeam();
+		}
+
+		if(currTime === "77"){
+			resetStarted();
+		}
+
+		if(currTime === "149"){
+			obscurity();
+		}
+	
+	};
+
+	var begin = function(){
+		if(!started){
+			started = true;
+			pdb_background.emit('fadein');
+		}
+	}
+
+	var thisIsHere = function(){
+		if(!started){
+			pdb_background.emit('fadeout');
+			hide(pdb_background);
+			earth.emit('fadein');
+			camera.emit('zoom-1');
+			started = true;
+		}
+	}
+
+	var everyone = function(){
+		var e1 = document.getElementById("everyone-1");
+		var e2 = document.getElementById("everyone-2");
+		var e3 = document.getElementById("everyone-3");
+		var e4 = document.getElementById("everyone-4");
+
+		var e5 = document.getElementById("everyone-5");
+		var e6 = document.getElementById("everyone-6");
+		var e7 = document.getElementById("everyone-7");
+		var e8 = document.getElementById("everyone-8");
+
+		var e9 = document.getElementById("everyone-9");
+		var e10 = document.getElementById("everyone-10");
+		var e11 = document.getElementById("everyone-11");
+		var e12 = document.getElementById("everyone-12");
+		var e13 = document.getElementById("everyone-13");
+		var e14 = document.getElementById("everyone-14");
+		var e15 = document.getElementById("everyone-15");
+
+		if(!started){
+			hide(earth);
+			hide(pdb_background);
+			e1.emit('fadein');
+			e2.emit('fadein');
+			e3.emit('fadein');
+			e4.emit('fadein');
+
+			e5.emit('fadein');
+			e6.emit('fadein');
+			e7.emit('fadein');
+			e8.emit('fadein');
+			e9.emit('fadein');
+			e10.emit('fadein');
+			e11.emit('fadein');
+			e12.emit('fadein');
+			e13.emit('fadein');
+			e14.emit('fadein');
+			e15.emit('fadein');
+		}
+	}
+
+	var inASunbeam = function(){
+		if(!started){
+			hide(document.getElementById('sagan-clip-1'));
+
+			fadeShow(pdb_background);
+
+			started = true;
+		}
+	}
+
+	var video1 = function(){
+		if(!started){
+			started = true;
+
+			hide(document.getElementById('everyone'));
+			show(document.getElementById('sagan-clip-1'));
+			sc.play();
+		}
+	}
+
+
+	var obscurity = function(){
+		var el = document.getElementById('obscurity');
+		
+		if(!started){
+			started = true;
+			animateKids(el, 'fadein');
+			hide(pdb_background);
+			show(el);
+		}
+	}
+
+
+	var animateKids = function(element, animation){
+		var kids = element.children;
+
+		for (var i = 0, len = kids.length; i < len; i++) {
+  		kids[i].emit(animation);
+		}
+
+	}
+
+
+	audio.oncanplay = function(){
+		audio.play();
+	}
+
+	var pauseAudio = function(){	
+		audio.pause();
+	}
+
+	var playAudio = function(){	
+		audio.play();
+	}
+
+	var skipAudio = function(time){	
+		audio.currentTime = time;
+	}
+
+	var resetStarted = function(){
+		started = false;
+	}
+
+	var resetCamera = function(){
+		camera.setAttribute('position', '0 1.56 0');
+		camera.setAttribute('rotation', '0 0 0');
+	}
+
+	var hide = function(element){
+		element.emit('fadeout');
+		setTimeout(function(){
+			element.setAttribute('visible', 'false');
+		}, 800)
+	};
+
+	var fadeShow = function(element){
+		show(element);
+		element.emit('fadein');
+	}
+
+	var show = function(element){
+		element.setAttribute('visible', 'true');
+	}
+
+
+
+
+
+	</script>
+
+<!-- 	<button style="position:absolute;top:10px;left:60px;" onclick="playAudio();">Play</button>
+	<button style="position:absolute;top:10px;left:10px;" onclick="pauseAudio();">Pause</button>
+	<button style="position:absolute;top:30px;left:10px;" onclick="skipAudio(25);">Skip</button> -->
+
+
+</body>
+</html>
